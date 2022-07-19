@@ -24,7 +24,8 @@ afterUpdate(() => {
 
 <div class="navbar">
     <div class="nav-left">
-        <span class="nav-logo">Logo</span>
+        <img src="https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/logo-cin.png?alt=media&token=3846acd0-54d0-45ee-bf26-ad58fa9ec948" 
+        alt="LOGO" class="nav-logo" />
     </div>
 
     <div class="nav-right">
@@ -48,8 +49,8 @@ afterUpdate(() => {
 }
 
 .nav-logo {
-    font-weight: 800;
-    font-size: 3rem;
+    width: 27%;
+    padding: 0 10px;
 }
 
 a {
