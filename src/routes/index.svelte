@@ -1,10 +1,22 @@
 <script>
 import Carousel from "$lib/Carousel.svelte";
-const items = [
-    "https://firebasestorage.googleapis.com/v0/b/e-commerce-tutorial-e673a.appspot.com/o/1649899781836nike-shoes.png?alt=media&token=52a7e26f-c047-4fd2-bfec-708f0dc1eb7f",
-    "https://firebasestorage.googleapis.com/v0/b/e-commerce-tutorial-e673a.appspot.com/o/1650564740146dark-jeans-men.png?alt=media&token=26100127-8465-47fd-bed6-2bfc92d9c361",
-    "https://firebasestorage.googleapis.com/v0/b/e-commerce-tutorial-e673a.appspot.com/o/1650570954225grey-shirt-men.png?alt=media&token=705ef3d7-41f1-463d-a103-6da69600e5a6",
-    "https://firebasestorage.googleapis.com/v0/b/e-commerce-tutorial-e673a.appspot.com/o/1650571236773pale-blue-hoodie.png?alt=media&token=f6a763da-8e76-447b-a445-f90650401a74",
+const firstItems = [
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-1.jpg?alt=media&token=d37cade0-ad7d-4fc5-b17b-5e912f8a1cf7",
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-2.jpg?alt=media&token=52f9c289-263a-465e-9907-466d67b87a94",
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-3.jpg?alt=media&token=aaa1f637-33bc-4970-8a7b-f7384edef682",
+
+];
+const secondItems = [
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/famille-1.jpg?alt=media&token=c1c5a02c-fc4e-482e-abb1-50fec23523d9",
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/famille-2.jpg?alt=media&token=ec50272e-938a-4ad9-bdc3-1496b8d71626",
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/famille-3.jpg?alt=media&token=35f524c4-00f2-40b2-b2c7-daee9fe4b3dd",
+
+];
+
+const thirdItems = [
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-1.jpg?alt=media&token=308c6fbf-3fd4-41b4-bc66-8a426d7f007b",
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-2.jpg?alt=media&token=a7c97852-0ff1-4437-92a2-83054cc39feb",
+    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-3.jpg?alt=media&token=60a260d8-3acc-4dc9-a3c3-763b70097ad0",
 
 ];
 </script>
@@ -21,16 +33,22 @@ const items = [
     </section>
     
     <section class="carousels">
-        <div class="carousel-1">
-            <h3 class="carousel-title">Carousel Title</h3>
+        <div class="carousel-container">
+            <h3 class="carousel-title">Événements</h3>
             <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange {items} timer={3} />
+            <Carousel autoChange items={firstItems} bgColor="lightblue" timer={3} />
         </div>
 
-        <div class="carousel-2">
-            <h3 class="carousel-title">Carousel Title</h3>
+        <div class="carousel-container">
+            <h3 class="carousel-title">Famille</h3>
             <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange {items} timer={3} />
+            <Carousel autoChange items={secondItems} bgColor="lightcoral" timer={3} />
+        </div>
+
+        <div class="carousel-container">
+            <h3 class="carousel-title">Grossesses</h3>
+            <p class="carousel-description">Small carousel presentation text to explain what we see</p>
+            <Carousel autoChange items={thirdItems} bgColor="lightgreen" timer={3} />
         </div>
                 
     </section>
@@ -39,7 +57,7 @@ const items = [
 </main>
 
 <style>
-main {
+.presentation{
     padding: 0.8rem;
 }
 
@@ -50,5 +68,6 @@ main {
 
 .carousel-description{
     text-align: center;
+    color: light;
 }
 </style>

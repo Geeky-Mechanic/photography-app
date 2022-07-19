@@ -50,7 +50,7 @@ afterUpdate(() => {
         <span class="right-content">Right</span>
     </div>
     </div>
-    <span class="copyright">Copyright 2022 JayChamp</span>
+    <span class="copyright">Copyright 2022 Geeky Mechanic</span>
 </footer>
 
 <style>

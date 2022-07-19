@@ -2,6 +2,7 @@
 export let items;
 export let autoChange;
 export let timer;
+export let bgColor;
 //export let dots;
 
 timer = timer * 1000 || 5000;
@@ -38,7 +39,7 @@ if (autoChange){
 
 </script>
 
-<main>
+<main style={`background-color: ${bgColor};`}>
     <div class="button" style="left: 0;" id="prev" on:click={(e) => handleNavigate(e.target.id)}>
         <img src="/images/arrow-back.svg" alt="">
     </div>
