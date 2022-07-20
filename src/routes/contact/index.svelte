@@ -1,7 +1,7 @@
 <script>
     import Card from "$lib/Card.svelte";
     import Button from "$lib/Button.svelte";
-
+    import { contactStore } from "../../stores/info.js";
     import { slide } from "svelte/transition";
 
     /* --->  Input values handling  <--- */
@@ -10,7 +10,7 @@
         name: "",
         email: "",
         lname: "",
-        subj: "",
+        subj: $contactStore.subj,
         desc: "",
     };
 

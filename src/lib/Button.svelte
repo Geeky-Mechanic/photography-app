@@ -16,8 +16,9 @@ button:hover{
     border-radius: 3px;
     padding: 0.6rem 0;
     width: 15rem;
-    background-color: crimson;
+    background-color: orangered;
     color: white;
+    margin-top: 2rem;
 }
 .secondary {
     background-color: teal;

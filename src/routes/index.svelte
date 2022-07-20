@@ -1,5 +1,9 @@
 <script>
 import Carousel from "$lib/Carousel.svelte";
+import Button from "$lib/Button.svelte";
+import { goto } from '$app/navigation';
+import { contactStore } from "../stores/info.js";
+
 const firstItems = [
     "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-1.jpg?alt=media&token=d37cade0-ad7d-4fc5-b17b-5e912f8a1cf7",
     "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-2.jpg?alt=media&token=52f9c289-263a-465e-9907-466d67b87a94",
@@ -19,6 +23,11 @@ const thirdItems = [
     "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-3.jpg?alt=media&token=60a260d8-3acc-4dc9-a3c3-763b70097ad0",
 
 ];
+
+const handleClick = (subj)=> {
+$contactStore.subj = subj;
+goto("/contact");
+};
 </script>
 
 <main>
@@ -34,21 +43,24 @@ const thirdItems = [
     
     <section class="carousels">
         <div class="carousel-container">
-            <h3 class="carousel-title">Événements</h3>
+            <h2 class="carousel-title">Événements</h2>
             <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange items={firstItems} bgColor="lightblue" timer={3} />
+            <Carousel autoChange items={firstItems} bgColor="#dbdbdb" timer={3} />
+            <Button on:click={() => handleClick("Réservation pour Événements")} content="RÉSERVER" primary />
         </div>
 
         <div class="carousel-container">
-            <h3 class="carousel-title">Famille</h3>
+            <h2 class="carousel-title">Famille</h2>
             <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange items={secondItems} bgColor="lightcoral" timer={3} />
+            <Carousel autoChange items={secondItems} bgColor="#dbdbdb" timer={3} />
+            <Button on:click={() => handleClick("Réservation pour Famille")} content="RÉSERVER" primary />
         </div>
 
         <div class="carousel-container">
-            <h3 class="carousel-title">Grossesses</h3>
+            <h2 class="carousel-title">Grossesses</h2>
             <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange items={thirdItems} bgColor="lightgreen" timer={3} />
+            <Carousel autoChange items={thirdItems} bgColor="#dbdbdb" timer={3} /> 
+            <Button on:click={() => handleClick("Réservation pour Grossesses")} content="RÉSERVER" primary />
         </div>
                 
     </section>
@@ -57,6 +69,21 @@ const thirdItems = [
 </main>
 
 <style>
+
+h1{
+    font-size: 2rem;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+.carousel-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 .presentation{
     padding: 0.8rem;
 }

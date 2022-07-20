@@ -7,5 +7,7 @@
 </main>
 
 <style>
-    
+    main {
+        padding: 0.8rem;
+    }
 </style>

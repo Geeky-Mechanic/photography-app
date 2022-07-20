@@ -24,7 +24,7 @@ afterUpdate(() => {
 
 <div class="navbar">
     <div class="nav-left">
-        <img src="https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/logo-cin.png?alt=media&token=3846acd0-54d0-45ee-bf26-ad58fa9ec948" 
+        <img src="https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/logo-cin-noir.png?alt=media&token=3c26465a-7482-480d-a502-c4e73a7a00c8" 
         alt="LOGO" class="nav-logo" />
     </div>
 
@@ -41,16 +41,16 @@ afterUpdate(() => {
 .navbar {
     display: flex;
     justify-content: space-between;
-    padding-left:30px;
-    padding-right: 20px;
-    height: 70px;
-    background-color: crimson;
+    padding-left:2rem;
+    padding-right: 1.5rem;
+    height: 7rem;
+    background-color: #dbdbdb;
     /* --->  choose right color and style better  <--- */
 }
 
 .nav-logo {
-    width: 27%;
-    padding: 0 10px;
+    height: 90%;
+    text-align: center;
 }
 
 a {
