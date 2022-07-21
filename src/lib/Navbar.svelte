@@ -50,7 +50,7 @@ const handleBurger = () => {
         <img src="/images/burger.svg" alt="">
     </div>
 
-    <div class="burger-menu" style={burgerOpen ? "display:unset;" : ""}>
+    <div class="burger-menu"  style={burgerOpen ? "display:unset;" : ""}>
         {#each items as item}
         <div class="nav-item">
             <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
@@ -60,6 +60,7 @@ const handleBurger = () => {
 </div>
 
 <style>
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -72,7 +73,7 @@ const handleBurger = () => {
 
 .nav-logo {
     height: 90%;
-    text-align: center;
+    margin: auto 0;
 }
 
 a {
@@ -106,6 +107,7 @@ a {
     cursor: pointer;
 }
 
+/* ---->  add sliding down animation  <---------------------------------- */
 .burger-menu{
     position: absolute;
     top: 7rem;
@@ -123,6 +125,14 @@ a {
     display: none;
 }
 
+.nav-left{
+    display: flex;
+    justify-content: center;
+}
+
+
+/* responsiveness */
+
 @media screen and (max-width : 750px){
     .nav-right{
         display: none;
@@ -130,6 +140,38 @@ a {
 
     .burger{
         display: unset;
+    }
+}
+
+@media screen and (max-width : 535px){
+    .nav-logo{
+        max-width: 100%;
+    }
+    .navbar{
+        padding: 0 0.5rem;
+    }
+}
+
+@media screen and (max-width : 490px){
+    .nav-logo{
+        max-width: 100%;
+        height: auto;
+    }
+
+    .burger{
+        margin: auto 1rem;
+    }
+}
+
+@media screen and (max-width : 450px){
+    .burger{
+        margin: auto 0.5rem;
+    }
+}
+
+@media screen and (max-width : 410px){
+    .burger{
+        margin: auto 0;
     }
 }
 </style>
