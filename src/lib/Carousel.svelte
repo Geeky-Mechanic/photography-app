@@ -41,23 +41,23 @@ if (autoChange){
 
 <main style={`background-color: ${bgColor};`}>
     <div class="button" style="left: 0;" id="prev" on:click={(e) => handleNavigate(e.target.id)}>
-        <img src="/images/arrow-back.svg" alt="">
+        <img class="arrow" src="/images/arrow-back.svg" alt="">
     </div>
     <div class="wrapper" style={`transform: translateX(${slideIndex * -100}vw)`}>
         {#each items as item}
             <div class="slide">
-                <img src={item} alt="">
+                <img class="slider-img" src={item} alt="">
             </div>
         {/each}
     </div>
     <div class="button" style="right: 0;" id="next" on:click={(e) => handleNavigate(e.target.id)}>
-        <img src="/images/arrow-forward.svg" alt="">
+        <img class="arrow" src="/images/arrow-forward.svg" alt="">
     </div>
 </main>
 
 <style>
     main{
-        width: 100%;
+        width: 100vw;
         height: 100vh;
         display: flex;
         position: relative;
@@ -69,14 +69,14 @@ if (autoChange){
         height: 100%;
     }
 
-    img{
+    .slider-img, .arrow{
         height: 80%;
         margin: auto;
     }
 
     .button{
-        width: 50px;
-        height: 50px;
+        width: 4.5rem;
+        height: 4.5rem;
         background-color: lightgrey;
         border-radius: 50%;
         display: flex;
@@ -105,5 +105,29 @@ if (autoChange){
         /* moves wrapper on x-axis to do a slider */
     }
 
+    @media screen and (max-width : 1200px){
+        .slider-img{
+            max-width: 90%;
+            height: auto;
+            max-height: 90%;
+        }
+
+        .button{
+            width: 5.5rem;
+            height: 5.5rem;
+        }
+    }
     
+    @media screen and (max-width : 800px){
+        .button{
+            width: 7rem;
+            height: 100%;
+            border-radius: 0;
+        }
+
+        .arrow{
+            height: auto;
+            width: 90%;
+        }
+    }
 </style>

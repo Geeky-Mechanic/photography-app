@@ -20,6 +20,16 @@ afterUpdate(() => {
     }
 });
 
+let burgerOpen = false;
+
+const handleBurger = () => {
+    if (burgerOpen === false) {
+        burgerOpen = true;
+    } else{
+        burgerOpen = false;
+    }
+};
+
 </script>
 
 <div class="navbar">
@@ -31,7 +41,19 @@ afterUpdate(() => {
     <div class="nav-right">
         {#each items as item}
         <div class="nav-item">
-            <a href={`/${item.ref}`} class:active={item.name === activeItem}>{item.name}</a>
+            <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
+        </div>
+        {/each}
+    </div>
+
+    <div class="burger" on:click={handleBurger}>
+        <img src="/images/burger.svg" alt="">
+    </div>
+
+    <div class="burger-menu" style={burgerOpen ? "display:unset;" : ""}>
+        {#each items as item}
+        <div class="nav-item">
+            <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
         </div>
         {/each}
     </div>
@@ -71,5 +93,43 @@ a {
 .nav-item {
     text-align: center;
     margin: 0 10px;
+}
+
+.highlight{
+    font-weight: 500;
+    color: orangered;
+}
+
+.burger{
+    margin: auto 2rem;
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.burger-menu{
+    position: absolute;
+    top: 7rem;
+    right: 1rem;
+    background-color: lightskyblue;
+    padding: 1rem;
+    
+}
+
+.burger-menu > .nav-item {
+    margin: 0.8rem;
+}
+
+.burger, .burger-menu{
+    display: none;
+}
+
+@media screen and (max-width : 750px){
+    .nav-right{
+        display: none;
+    }
+
+    .burger{
+        display: unset;
+    }
 }
 </style>
