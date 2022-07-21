@@ -2,6 +2,7 @@
 import { afterUpdate } from 'svelte';
 export let pageUrl;
 export let items;
+import { slide } from "svelte/transition";
 
 let activePage;
 
@@ -50,7 +51,7 @@ const handleBurger = () => {
         <img src="/images/burger.svg" alt="">
     </div>
 
-    <div class="burger-menu"  style={burgerOpen ? "display:unset;" : ""}>
+    <div out:slide class="burger-menu"  style={burgerOpen ? "display:flex; flex-direction: column;" : ""}>
         {#each items as item}
         <div class="nav-item">
             <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
@@ -111,10 +112,12 @@ a {
 .burger-menu{
     position: absolute;
     top: 7rem;
-    right: 1rem;
+    left: 0;
     background-color: lightskyblue;
     padding: 1rem;
-    
+    width: 100vw;
+    z-index: 2 ; 
+    transition: all 0.5s ease;
 }
 
 .burger-menu > .nav-item {

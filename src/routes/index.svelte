@@ -3,6 +3,7 @@ import Carousel from "$lib/Carousel.svelte";
 import Button from "$lib/Button.svelte";
 import { goto } from '$app/navigation';
 import { contactStore } from "../stores/info.js";
+import { slide } from "svelte/transition";
 
 const firstItems = [
     "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-1.jpg?alt=media&token=d37cade0-ad7d-4fc5-b17b-5e912f8a1cf7",
@@ -30,7 +31,7 @@ goto("/contact");
 };
 </script>
 
-<main>
+<main out:slide>
     <section class="presentation">
         <h1>Landing Page</h1>
         <p>My products presentation</p>
