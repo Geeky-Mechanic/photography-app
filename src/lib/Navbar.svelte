@@ -2,11 +2,17 @@
 import { afterUpdate } from 'svelte';
 export let pageUrl;
 export let items;
-import { slide } from "svelte/transition";
+import { tweened } from 'svelte/motion';
 
 let activePage;
 
 let activeItem;
+
+const tweenTime = 300;
+
+const height = tweened(0, {
+    duration: tweenTime,
+});
 
 afterUpdate(() => {
     activePage = pageUrl.split("/");
@@ -21,13 +27,23 @@ afterUpdate(() => {
     }
 });
 
+let target = 0;
+
+for (let i=0; i <= items.length; i++){
+    target = target + 12.8 + 20;
+}
+
 let burgerOpen = false;
 
 const handleBurger = () => {
     if (burgerOpen === false) {
         burgerOpen = true;
+        $height += target;
     } else{
-        burgerOpen = false;
+        $height = 0;
+        setTimeout(() => {
+            burgerOpen = false;
+        }, tweenTime);
     }
 };
 
@@ -51,7 +67,7 @@ const handleBurger = () => {
         <img src="/images/burger.svg" alt="">
     </div>
 
-    <div out:slide class="burger-menu"  style={burgerOpen ? "display:flex; flex-direction: column;" : ""}>
+    <div class="burger-menu"  style={`height: ${$height}px; ${burgerOpen? "display:flex; flex-direction: column;": "display: none;"}`}>
         {#each items as item}
         <div class="nav-item">
             <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
@@ -113,18 +129,19 @@ a {
     position: absolute;
     top: 7rem;
     left: 0;
-    background-color: lightskyblue;
+    background-color: lightgrey;
     padding: 1rem;
     width: 100vw;
-    z-index: 2 ; 
-    transition: all 0.5s ease;
+    z-index: 2;
+    height: 0;
+    overflow: hidden;
 }
 
 .burger-menu > .nav-item {
     margin: 0.8rem;
 }
 
-.burger, .burger-menu{
+.burger{
     display: none;
 }
 

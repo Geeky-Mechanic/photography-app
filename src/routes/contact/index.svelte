@@ -177,7 +177,7 @@
                             <p class="errorMsg">La description est manquante ou trop courte</p>
                         {/if}
                     </div>
-                    <Button on:click={handleClick} content="SEND" secondary />
+                    <Button on:click={handleClick} content="ENVOYER" secondary />
                 </div>
                 <img
                     src="https://firebasestorage.googleapis.com/v0/b/charger-project.appspot.com/o/question.png?alt=media&token=21067d71-ae51-4924-9246-09032c0cd60c"
@@ -205,6 +205,7 @@
         justify-content: center;
         align-items: flex-start;
         flex-direction: column;
+        max-width: 100vw;
     }
 
     .secondary-container {
@@ -258,5 +259,25 @@
 
     .promise-failed {
         color: red;
+    }
+
+    @media screen and (max-width : 900px){
+        img{
+            display: none;
+        }
+        .contact-container{
+            align-items: center;
+        }
+        .secondary-container{
+            justify-content: center;
+        }
+        .form-container{
+            align-items: center;
+            margin-right: auto;
+        }
+        .form-element{
+            width: 100%;
+            align-items: center;
+        }
     }
 </style>

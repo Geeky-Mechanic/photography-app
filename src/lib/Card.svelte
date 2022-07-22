@@ -61,4 +61,10 @@ on:mouseleave={handleHoverOut} on:blur={handleHoverOut} >
 .small {
     width: 50%;
 }
+
+@media screen and (max-width : 900px){
+    .card-container{
+        width: 80%;
+    }
+}
 </style>

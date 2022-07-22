@@ -1,5 +1,9 @@
 <script>
 import { afterUpdate } from 'svelte';
+import Icon from 'svelte-awesome/components/Icon.svelte'
+import facebookSquare from 'svelte-awesome/icons/facebookSquare';
+import envelope from 'svelte-awesome/icons/envelope';
+import instagram from 'svelte-awesome/icons/instagram';
 
 export let pageUrl;
 
@@ -27,9 +31,9 @@ afterUpdate(() => {
 <footer>
     <div class="footer-wrapper">
     <div class="footer-content footer-left">
-        <span class="left-content">Left</span>
-        <span class="left-content">Left</span>
-        <span class="left-content">Left</span>
+        <span><Icon data={facebookSquare}/> @Cindy123456</span>
+        <span><Icon data={envelope}/> cindy@hotmail.com</span>
+        <span><Icon data={instagram}/> @Cindy123456</span>
         <span class="left-content">Left</span>
         <span class="left-content">Left</span>
         <span class="left-content">Left</span>
@@ -80,6 +84,9 @@ a {
     justify-content: center;
     flex-direction: column;
     color: #6B6969;
+}
+.footer-left{
+    align-items: start;
 }
 
 .left-content {
