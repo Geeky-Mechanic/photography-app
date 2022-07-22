@@ -110,7 +110,7 @@
             <div class="secondary-container">
                 <div class="form-container">
                     <div class="form-element">
-                        <label for="1">Nom</label>
+                        <label for="1">Prénom</label>
                         <input
                             type="text"
                             name="name"
@@ -119,11 +119,11 @@
                             bind:value={data.name}
                         />
                         {#if errors.name}
-                            <p class="errorMsg">Le nom est manquant</p>
+                            <p class="errorMsg">Le prénom est manquant</p>
                         {/if}
                     </div>
                     <div class="form-element">
-                        <label for="2">Nom de famille</label>
+                        <label for="2">Nom</label>
                         <input
                             type="text"
                             name="lname"
@@ -132,7 +132,7 @@
                             bind:value={data.lname}
                         />
                         {#if errors.lname}
-                            <p class="errorMsg">Le nom de famille est manquant</p>
+                            <p class="errorMsg">Le nom est manquant</p>
                         {/if}
                     </div>
                     <div class="form-element">

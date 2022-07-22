@@ -31,12 +31,9 @@ afterUpdate(() => {
 <footer>
     <div class="footer-wrapper">
     <div class="footer-content footer-left">
-        <span><Icon data={facebookSquare}/> @Cindy123456</span>
-        <span><Icon data={envelope}/> cindy@hotmail.com</span>
-        <span><Icon data={instagram}/> @Cindy123456</span>
-        <span class="left-content">Left</span>
-        <span class="left-content">Left</span>
-        <span class="left-content">Left</span>
+        <a href="https://www.google.com" class="left-content"><Icon data={facebookSquare}/> @Cindy123456</a>
+        <a href="https://www.google.com" class="left-content"><Icon data={envelope}/> cindy@hotmail.com</a>
+        <a href="https://www.google.com" class="left-content"><Icon data={instagram}/> @Cindy123456</a>
     </div>
 
     <div class="footer-content footer-center">
@@ -73,7 +70,6 @@ a {
 
 .footer-wrapper {
     display: flex;
-    justify-content: space-between;
     width: 100%;
     margin-bottom: 2rem;
 }
@@ -84,13 +80,18 @@ a {
     justify-content: center;
     flex-direction: column;
     color: #6B6969;
+    flex: 1;
 }
 .footer-left{
-    align-items: start;
+    align-items: flex-start;
+}
+
+.footer-right{
+    align-items: flex-end;
 }
 
 .left-content {
-    margin: 5px 0;
+    margin: auto 0;
 }
 
 .center-content {

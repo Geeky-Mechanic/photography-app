@@ -70,7 +70,7 @@ const handleBurger = () => {
     <div class="burger-menu"  style={`height: ${$height}px; ${burgerOpen? "display:flex; flex-direction: column;": "display: none;"}`}>
         {#each items as item}
         <div class="nav-item">
-            <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
+            <a href={`/${item.ref}`} on:click={handleBurger} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
         </div>
         {/each}
     </div>
