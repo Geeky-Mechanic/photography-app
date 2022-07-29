@@ -1,29 +1,79 @@
+<script context="module">
+    export async function load({fetch}){
+        const familyRes = await fetch(`/api/content/famille`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const pregnancyRes = await fetch(`/api/content/grossesses`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const eventRes = await fetch(`/api/content/evenements`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
+        const familyData = await familyRes.json();
+        const pregnancyData = await pregnancyRes.json();
+        const eventData = await eventRes.json();
+
+        return {
+          props: {
+            familyData,
+            pregnancyData,
+            eventData,
+          },
+        };
+    }
+</script>
 <script>
 import Carousel from "$lib/Carousel.svelte";
 import Button from "$lib/Button.svelte";
 import { goto } from '$app/navigation';
 import { contactStore } from "../stores/info.js";
 import { slide } from "svelte/transition";
+export let familyData;
+export let pregnancyData;
+export let eventData;
 
-const firstItems = [
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-1.jpg?alt=media&token=d37cade0-ad7d-4fc5-b17b-5e912f8a1cf7",
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-2.jpg?alt=media&token=52f9c289-263a-465e-9907-466d67b87a94",
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/evenement-3.jpg?alt=media&token=aaa1f637-33bc-4970-8a7b-f7384edef682",
+let familyText;
+let eventText;
+let pregnancyText;
 
-];
-const secondItems = [
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/famille-1.jpg?alt=media&token=c1c5a02c-fc4e-482e-abb1-50fec23523d9",
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/famille-2.jpg?alt=media&token=ec50272e-938a-4ad9-bdc3-1496b8d71626",
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/famille-3.jpg?alt=media&token=35f524c4-00f2-40b2-b2c7-daee9fe4b3dd",
+let newEventData = eventData.filter((item) => {
+    return item.image !== "";
+});
 
-];
+let newPregnancyData = pregnancyData.filter((item) => {
+    return item.image !== "";
+});
 
-const thirdItems = [
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-1.jpg?alt=media&token=308c6fbf-3fd4-41b4-bc66-8a426d7f007b",
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-2.jpg?alt=media&token=a7c97852-0ff1-4437-92a2-83054cc39feb",
-    "https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/grossesse-3.jpg?alt=media&token=60a260d8-3acc-4dc9-a3c3-763b70097ad0",
+let newFamilyData = familyData.filter((item) => {
+    return item.image !== "";
+});
 
-];
+familyData.forEach(item => {
+    if(item.content !== ""){
+        familyText = item.content;
+    }
+});
+
+pregnancyData.forEach(item => {
+    if(item.content !== ""){
+        pregnancyText = item.content;
+    }
+});
+
+eventData.forEach(item => {
+    if(item.content !== ""){
+        eventText = item.content;
+    }
+});
 
 const handleClick = (subj)=> {
 $contactStore.subj = subj;
@@ -45,22 +95,22 @@ goto("/contact");
     <section class="carousels">
         <div class="carousel-container">
             <h2 class="carousel-title">Événements</h2>
-            <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange items={firstItems} bgColor="#dbdbdb" timer={3} />
+            <p class="carousel-description">{eventText}</p>
+            <Carousel autoChange items={newEventData} bgColor="#dbdbdb" timer={3} />
             <Button on:click={() => handleClick("Réservation pour Événements")} content="RÉSERVER" primary />
         </div>
 
         <div class="carousel-container">
             <h2 class="carousel-title">Famille</h2>
-            <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange items={secondItems} bgColor="#dbdbdb" timer={3} />
+            <p class="carousel-description">{familyText}</p>
+            <Carousel autoChange items={newFamilyData} bgColor="#dbdbdb" timer={3} />
             <Button on:click={() => handleClick("Réservation pour Famille")} content="RÉSERVER" primary />
         </div>
 
         <div class="carousel-container">
             <h2 class="carousel-title">Grossesses</h2>
-            <p class="carousel-description">Small carousel presentation text to explain what we see</p>
-            <Carousel autoChange items={thirdItems} bgColor="#dbdbdb" timer={3} /> 
+            <p class="carousel-description">{pregnancyText}</p>
+            <Carousel autoChange items={newPregnancyData} bgColor="#dbdbdb" timer={3} /> 
             <Button on:click={() => handleClick("Réservation pour Grossesses")} content="RÉSERVER" primary />
         </div>
                 
