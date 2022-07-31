@@ -1,4 +1,4 @@
-import { connect } from "./db.js";
+import connect from "./db.js";
 import Contact from './models/Contact.js';
 
 export async function POST(event){
