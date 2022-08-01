@@ -41,39 +41,28 @@ export let familyData;
 export let pregnancyData;
 export let eventData;
 
-let familyText;
-let eventText;
-let pregnancyText;
+const familyText = getContentText(familyData);
+const eventText = getContentText(eventData);
+const pregnancyText = getContentText(pregnancyData);
 
-let newEventData = eventData.filter((item) => {
-    return item.image !== "";
-});
+let newEventData = filterArray(eventData);
+let newPregnancyData = filterArray(pregnancyData);
+let newFamilyData = filterArray(familyData);
 
-let newPregnancyData = pregnancyData.filter((item) => {
-    return item.image !== "";
-});
+//filter array to return only items with images to be displayed
+function filterArray(arr){
+    return arr.filter((item) => {
+            return item.image !== "";
+        });
+};
 
-let newFamilyData = familyData.filter((item) => {
-    return item.image !== "";
-});
-
-familyData.forEach(item => {
-    if(item.content !== ""){
-        familyText = item.content;
-    }
-});
-
-pregnancyData.forEach(item => {
-    if(item.content !== ""){
-        pregnancyText = item.content;
-    }
-});
-
-eventData.forEach(item => {
-    if(item.content !== ""){
-        eventText = item.content;
-    }
-});
+//isolate the item with content that will describe the carousel
+function getContentText(arr){
+    const newArr = arr.filter(item => {
+        return item.content !== "";
+    });
+    return newArr[0].content;
+}
 
 const handleClick = (subj)=> {
 $contactStore.subj = subj;
