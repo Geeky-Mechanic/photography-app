@@ -29,7 +29,7 @@
             eventData,
           },
         };
-    }
+    };
 </script>
 <script>
 import Carousel from "$lib/Carousel.svelte";
@@ -40,6 +40,8 @@ import { slide } from "svelte/transition";
 export let familyData;
 export let pregnancyData;
 export let eventData;
+
+console.log(eventData, pregnancyData, eventData);
 
 const familyText = getContentText(familyData);
 const eventText = getContentText(eventData);
