@@ -9,7 +9,6 @@ export async function GET(event){
         const content = await Content.find({
             location: location
         });
-        console.log(content, location);
         return{
             status: 200,
             body: content,
