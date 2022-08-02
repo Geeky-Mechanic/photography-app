@@ -18,15 +18,23 @@
             },
         });
 
+        const landingRes = await fetch(`/api/content/acceuil`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+
         const familyData = await familyRes.json();
         const pregnancyData = await pregnancyRes.json();
         const eventData = await eventRes.json();
+        const landingData = await landingRes.json();
 
         return {
           props: {
             familyData,
             pregnancyData,
             eventData,
+            landingData,
           },
         };
     };
@@ -40,6 +48,7 @@ import { slide } from "svelte/transition";
 export let familyData;
 export let pregnancyData;
 export let eventData;
+export let landingData;
 
 const familyText = getContentText(familyData);
 const eventText = getContentText(eventData);
@@ -72,13 +81,8 @@ goto("/contact");
 
 <main out:slide>
     <section class="presentation">
-        <h1>Landing Page</h1>
-        <p>My products presentation</p>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sint ducimus voluptatum sunt, delectus fuga veniam totam est unde ipsam ex hic atque consequuntur cumque iusto debitis et in, eaque similique?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias expedita minus reprehenderit debitis placeat quia. Tempore nesciunt, aut dolorum sed facere impedit consequatur reiciendis fugit animi corrupti illo qui neque.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores totam, eius dolore aliquam, veritatis neque impedit hic velit nesciunt saepe cupiditate porro quisquam possimus error eum nisi minima cumque architecto?
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non ullam exercitationem earum sed eum iure molestias architecto assumenda vitae placeat, incidunt veritatis sunt, corporis recusandae repudiandae nihil vero quis ea.
-        </p>
+        <h1>{landingData[0].title}</h1>
+        <p>{landingData[0].content}</p>
     </section>
     
     <section class="carousels">

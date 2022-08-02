@@ -16,8 +16,10 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fortawesome/free-brands-svg-icons": "^6.1.2",
+		"@fortawesome/free-solid-svg-icons": "^6.1.2",
 		"dotenv": "^16.0.1",
 		"mongoose": "^6.5.0",
-		"svelte-awesome": "^3.0.0"
+		"svelte-fa": "^3.0.3"
 	}
 }

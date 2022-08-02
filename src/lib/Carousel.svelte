@@ -135,8 +135,8 @@
     @media screen and (max-width: 800px) {
         .button {
             width: 7rem;
-            height: 100%;
-            border-radius: 0;
+            height: 7rem;
+            border-radius: 100%;
         }
 
         .arrow {
