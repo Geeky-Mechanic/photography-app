@@ -113,7 +113,9 @@ goto("/contact");
 </main>
 
 <style>
-
+main{
+    overflow: hidden;
+}
 h1{
     font-size: 2rem;
 }

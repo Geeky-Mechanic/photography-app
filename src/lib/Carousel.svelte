@@ -42,7 +42,7 @@
 <main style={`background-color: ${bgColor};`}>
     <div
         class="button"
-        style="left: 0;"
+        style="left: 1rem;"
         id="prev"
         on:click={() => handleNavigate("prev")}
     >
@@ -60,7 +60,7 @@
     </div>
     <div
         class="button"
-        style="right: 0;"
+        style="right: 1rem;"
         id="next"
         on:click={() => handleNavigate("next")}
     >
@@ -133,11 +133,7 @@
     }
 
     @media screen and (max-width: 800px) {
-        .button {
-            width: 7rem;
-            height: 7rem;
-            border-radius: 100%;
-        }
+
 
         .arrow {
             height: auto;
