@@ -1,12 +1,10 @@
 <script>
     import { afterUpdate } from "svelte";
     import Fa from "svelte-fa/src/fa.svelte";
-    import {
-        faFacebook,
-        faInstagram,
-    } from "@fortawesome/free-brands-svg-icons";
+    import * as brandPckg from "@fortawesome/free-brands-svg-icons";
+    const { faFacebook, faInstagram } = brandPckg;
     import * as pckg from "@fortawesome/free-solid-svg-icons";
-    const { faEnvelope } = pckg
+    const { faEnvelope } = pckg;
     export let pageUrl;
 
     export let items;
@@ -30,15 +28,24 @@
 <footer>
     <div class="footer-wrapper">
         <div class="footer-content footer-left">
-            <a href="https://www.facebook.com/OptikPhotographie" class="left-content">
-                <Fa icon={faFacebook} color="#4267B2" size="4x" /> <p>@Cindy123456</p> </a
+            <a
+                href="https://www.facebook.com/OptikPhotographie"
+                class="left-content"
             >
+                <Fa icon={faFacebook} color="#4267B2" size="4x" />
+                <p>@Cindy123456</p>
+            </a>
             <a href="mailto:cindy_brousseau@hotmail.com" class="left-content">
-                <Fa icon={faEnvelope} size="4x" /> <p>cindy_brousseau@hotmail.com</p> </a
+                <Fa icon={faEnvelope} size="4x" />
+                <p>cindy_brousseau@hotmail.com</p>
+            </a>
+            <a
+                href="https://l.facebook.com/l.php?u=https%3A%2F%2Finstagram.com%2Foptik_photographie%3Figshid%3DYmMyMTA2M2Y%253D%26fbclid%3DIwAR164gKR9vS4scQkpHdjuxw4bmw5FCWf1uTQ2-A-PRNIcDiRRkZYFrhMzss&h=AT15nWTFwGf4AlWF-xXjZl_CN8DqGk8KR5EP4sGn_TMlacCHWXquegEw7vcn1AWezeMv2ImKqssgHufSuD7ZBQEP7aTf1LUV1OvFcVNyXDjvCf91RRmtpCgUdBt32A"
+                class="left-content"
             >
-            <a href="https://l.facebook.com/l.php?u=https%3A%2F%2Finstagram.com%2Foptik_photographie%3Figshid%3DYmMyMTA2M2Y%253D%26fbclid%3DIwAR164gKR9vS4scQkpHdjuxw4bmw5FCWf1uTQ2-A-PRNIcDiRRkZYFrhMzss&h=AT15nWTFwGf4AlWF-xXjZl_CN8DqGk8KR5EP4sGn_TMlacCHWXquegEw7vcn1AWezeMv2ImKqssgHufSuD7ZBQEP7aTf1LUV1OvFcVNyXDjvCf91RRmtpCgUdBt32A" class="left-content">
-                <Fa icon={faInstagram} size="4x" color="#bc2a8d" /> <p>@optik_photographie</p> </a
-            >
+                <Fa icon={faInstagram} size="4x" color="#bc2a8d" />
+                <p>@optik_photographie</p>
+            </a>
         </div>
 
         <div class="footer-content footer-center">
@@ -98,7 +105,7 @@
     .footer-left {
         align-items: flex-start;
     }
-    .footer-left > a{
+    .footer-left > a {
         display: flex;
         align-items: center;
         margin: 1rem 0;
@@ -139,11 +146,12 @@
         border-top: 1px solid #ddd;
     }
 
-    @media screen and (max-width : 750px){
-        .footer-center, .footer-right{
+    @media screen and (max-width: 750px) {
+        .footer-center,
+        .footer-right {
             display: none;
         }
-        .footer-left{
+        .footer-left {
             display: flex;
             flex-direction: row;
         }
@@ -154,5 +162,4 @@
             margin: 0 1rem;
         }
     }
-
 </style>
