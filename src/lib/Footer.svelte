@@ -3,9 +3,11 @@
     import Fa from "svelte-fa/src/fa.svelte";
     import {
         faFacebook,
+    } from "@fortawesome/free-brands-svg-icons/faFacebook";
+    import {
         faInstagram,
-    } from "@fortawesome/free-brands-svg-icons";
-    import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+    } from "@fortawesome/free-brands-svg-icons/faInstagram";
+    import { faEnvelope } from "@fortawesome/free-solid-svg-icons/faEnvelope";
     export let pageUrl;
 
     export let items;
