@@ -5,8 +5,7 @@
         faFacebook,
         faInstagram,
     } from "@fortawesome/free-brands-svg-icons";
-    import pkg from '@fortawesome/free-solid-svg-icons';
-    const { faEnvelope } = pkg;
+    import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
     export let pageUrl;
 
     export let items;
