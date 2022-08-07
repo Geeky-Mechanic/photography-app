@@ -23,10 +23,19 @@
 <main out:slide>
     <h1>{infoData[0].title}</h1>
     <p>{infoData[0].content}</p>
+    <img src={infoData[0].image} alt="ME">
 </main>
 
 <style>
     main {
         padding: 0.8rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
+
+    img{
+        max-width: 80%;
+    }
+
 </style>

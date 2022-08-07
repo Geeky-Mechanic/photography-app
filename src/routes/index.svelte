@@ -89,21 +89,21 @@ goto("/contact");
         <div class="carousel-container">
             <h2 class="carousel-title">Événements</h2>
             <p class="carousel-description">{eventText}</p>
-            <Carousel autoChange items={newEventData} bgColor="#dbdbdb" timer={3} />
+            <Carousel autoChange items={newEventData} bgColor="#dbdbdb" timer={5} />
             <Button on:click={() => handleClick("Réservation pour Événements")} content="RÉSERVER" primary />
         </div>
 
         <div class="carousel-container">
             <h2 class="carousel-title">Famille</h2>
             <p class="carousel-description">{familyText}</p>
-            <Carousel autoChange items={newFamilyData} bgColor="#dbdbdb" timer={3} />
+            <Carousel autoChange items={newFamilyData} bgColor="#dbdbdb" timer={5} />
             <Button on:click={() => handleClick("Réservation pour Famille")} content="RÉSERVER" primary />
         </div>
 
         <div class="carousel-container">
             <h2 class="carousel-title">Grossesses</h2>
             <p class="carousel-description">{pregnancyText}</p>
-            <Carousel autoChange items={newPregnancyData} bgColor="#dbdbdb" timer={3} /> 
+            <Carousel autoChange items={newPregnancyData} bgColor="#dbdbdb" timer={5} /> 
             <Button on:click={() => handleClick("Réservation pour Grossesses")} content="RÉSERVER" primary />
         </div>
                 

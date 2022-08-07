@@ -1,8 +1,25 @@
+<script context="module">
+        export async function load({ fetch }) {
+        const infoRes = await fetch(`/api/content/contact`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const infoData = await infoRes.json();
+        return {
+            props: {
+                infoData,
+            },
+        };
+    }
+</script>
+
 <script>
     import Card from "$lib/Card.svelte";
     import Button from "$lib/Button.svelte";
     import { contactStore } from "../../stores/info.js";
     import { slide } from "svelte/transition";
+    export let infoData;
 
     /* --->  Input values handling  <--- */
 
@@ -98,14 +115,9 @@
 <div out:slide>
     <Card hoverable>
         <div class="contact-container">
-            <h2 class="contact-title">Contactez-Moi</h2>
+            <h2 class="contact-title">{infoData[0].title}</h2>
             <div class="contact-content">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
-                    sint consequuntur velit qui nostrum atque placeat
-                    perferendis numquam beatae, sed magni omnis et vitae
-                    dolorum, ipsa quis voluptate similique explicabo?
-                </p>
+                <p>{infoData[0].content}</p>
             </div>
             <div class="secondary-container">
                 <div class="form-container">

@@ -32,7 +32,7 @@
     <div class="footer-wrapper">
         <div class="footer-content footer-left">
             <a href="https://www.facebook.com/OptikPhotographie" class="left-content">
-                <Fa icon={faFacebook} color="#4267B2" size="4x" /> <p>@Cindy123456</p> </a
+                <Fa icon={faFacebook} color="#4267B2" size="4x" /> <p>Optik Photographie</p> </a
             >
             <a href="mailto:cindy_brousseau@hotmail.com" class="left-content">
                 <Fa icon={faEnvelope} size="4x" /> <p>cindy_brousseau@hotmail.com</p> </a
