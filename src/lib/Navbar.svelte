@@ -52,7 +52,7 @@ const handleBurger = () => {
 <div class="navbar">
     <div class="nav-left">
         <img src="https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/logo-cin-noir.png?alt=media&token=76606cc4-8548-4550-b49b-89411656d070" 
-        alt="LOGO" class="nav-logo" />
+        alt="Optik Photographie" class="nav-logo" />
     </div>
 
     <div class="nav-right">
