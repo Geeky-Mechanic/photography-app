@@ -79,6 +79,11 @@ goto("/contact");
 };
 </script>
 
+<svelte:head>
+    <title>Optik Photographie</title>
+    <meta name="description" content="Je suis une Photographe de Val-d'Or très enthousisate et versatile dans mes types de photos">
+</svelte:head>
+
 <main out:slide>
     <section class="presentation">
         <h1>{landingData[0].title}</h1>
