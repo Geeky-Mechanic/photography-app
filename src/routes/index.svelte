@@ -80,8 +80,8 @@ goto("/contact");
 </script>
 
 <svelte:head>
-    <title>Optik Photographie</title>
-    <meta name="description" content="Je suis une Photographe de Val-d'Or très enthousisate et versatile dans mes types de photos">
+    <title>Optik Photographie : Service de photograpĥie de qualité en Abitibi</title>
+    <meta name="description" content="Je suis une Photographe de Val-d'Or très enthousisate et versatile dans mes types de photos qui offre ses services à plusieurs endroits en Abitibi">
     <meta name="google-site-verification" content="q315ivPfbLoPKqtbtDT4iYXoUEwTLOaSwifKGImlVds" />
 </svelte:head>
 
