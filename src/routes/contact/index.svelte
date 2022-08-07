@@ -112,6 +112,11 @@
     };
 </script>
 
+<svelte:head>
+    <title>Contactez-moi - Prenez rendez-vous ou posez vos questions</title>
+    <meta name="description" content="Prendre rendez-vous - Remplissez le formulaire pour prendre rendez-vous ou pour poser des questions sur nos services">
+</svelte:head>
+
 <div out:slide>
     <Card hoverable>
         <div class="contact-container">

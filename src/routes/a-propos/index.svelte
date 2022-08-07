@@ -20,6 +20,11 @@
     import { slide } from "svelte/transition";
 </script>
 
+<svelte:head>
+    <title>À-propos d'Optik Photographie - Voici une courte description</title>
+    <meta name="description" content="Voici une courte description d'Optik Photographie et de son histoire!">
+</svelte:head>
+
 <main out:slide>
     <h1>{infoData[0].title}</h1>
     <p>{infoData[0].content}</p>
