@@ -92,27 +92,27 @@ goto("/contact");
     </section>
     
     <section class="carousels">
+        <hr />
         <div class="carousel-container">
             <h2 class="carousel-title">Événements</h2>
             <p class="carousel-description">{eventText}</p>
-            <Carousel autoChange items={newEventData} bgColor="#dbdbdb" timer={5} />
+            <Carousel autoChange items={newEventData} bgColor="#000" timer={5} />
             <Button on:click={() => handleClick("Réservation pour Événements")} content="RÉSERVER" primary />
         </div>
-
+        <hr />
         <div class="carousel-container">
             <h2 class="carousel-title">Famille</h2>
             <p class="carousel-description">{familyText}</p>
-            <Carousel autoChange items={newFamilyData} bgColor="#dbdbdb" timer={5} />
+            <Carousel autoChange items={newFamilyData} bgColor="#000" timer={5} />
             <Button on:click={() => handleClick("Réservation pour Famille")} content="RÉSERVER" primary />
         </div>
-
+        <hr />
         <div class="carousel-container">
             <h2 class="carousel-title">Grossesses</h2>
             <p class="carousel-description">{pregnancyText}</p>
-            <Carousel autoChange items={newPregnancyData} bgColor="#dbdbdb" timer={5} /> 
+            <Carousel autoChange items={newPregnancyData} bgColor="#000" timer={5} /> 
             <Button on:click={() => handleClick("Réservation pour Grossesses")} content="RÉSERVER" primary />
         </div>
-                
     </section>
     
 
@@ -121,6 +121,8 @@ goto("/contact");
 <style>
 main{
     overflow: hidden;
+    background-color: #000;
+    color: #fff;
 }
 h1{
     font-size: 2rem;
@@ -130,10 +132,17 @@ p{
     font-size: 1.3rem;
 }
 
+hr{
+    width: 90%;
+    background-color: #fff;
+    height: 2px;
+}
+
 .carousel-container{
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-bottom: 3rem;
 }
 
 .presentation{
@@ -150,5 +159,8 @@ p{
     color: light;
 }
 
+.presentation{
+    text-align: center;
+}
 
 </style>

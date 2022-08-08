@@ -51,7 +51,7 @@ const handleBurger = () => {
 
 <div class="navbar">
     <div class="nav-left">
-        <img src="https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/logo-cin-noir.png?alt=media&token=76606cc4-8548-4550-b49b-89411656d070" 
+        <img src="https://firebasestorage.googleapis.com/v0/b/photography-app-9dbd7.appspot.com/o/logo-cin.png?alt=media&token=e1c77681-e583-4028-a396-bcd65cbcc388" 
         alt="Optik Photographie" class="nav-logo" />
     </div>
 
@@ -64,7 +64,7 @@ const handleBurger = () => {
     </div>
 
     <div class="burger" on:click={handleBurger}>
-        <img src="/images/burger.svg" alt="">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z"/></svg>
     </div>
 
     <div class="burger-menu"  style={`height: ${$height}px; ${burgerOpen? "display:flex; flex-direction: column;": "display: none;"}`}>
@@ -78,13 +78,17 @@ const handleBurger = () => {
 
 <style>
 
+svg{
+    fill: #fff;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     padding-left:2rem;
     padding-right: 1.5rem;
     height: 7rem;
-    background-color: #dbdbdb;
+    background-color: #000;
     /* --->  choose right color and style better  <--- */
 }
 
@@ -94,7 +98,7 @@ const handleBurger = () => {
 }
 
 a {
-    color:black;
+    color:#fff;
     text-decoration: none;
 }
 
@@ -115,7 +119,10 @@ a {
 
 .highlight{
     font-weight: 500;
-    color: orangered;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #f0930b;
+    padding: 1rem;
 }
 
 .burger{
@@ -129,7 +136,7 @@ a {
     position: absolute;
     top: 7rem;
     left: 0;
-    background-color: lightgrey;
+    background-color: #000;
     padding: 1rem;
     width: 100vw;
     z-index: 2;
