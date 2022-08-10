@@ -125,7 +125,7 @@
     }
 
     .active {
-        border-bottom: 2px solid crimson;
+        border-bottom: 2px solid lightskyblue;
     }
 
     .right-content {
