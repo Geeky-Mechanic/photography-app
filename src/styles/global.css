@@ -3,3 +3,9 @@ body {
     background-color: #000;
     color: #fff;
 }
+
+.event-url{
+    color: #fff;
+    text-decoration: none;
+    background-color: #f0930b;
+}

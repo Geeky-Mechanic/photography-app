@@ -13,6 +13,7 @@
     export let pageUrl;
 
     let items = [
+        {name: "Réservez", ref:"reservation"},
         { name: "Acceuil", ref: "" },
         { name: "Contactez-Moi", ref: "contact" },
         { name: "A Propos de moi", ref: "a-propos" },

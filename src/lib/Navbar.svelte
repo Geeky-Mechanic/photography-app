@@ -16,15 +16,18 @@ const height = tweened(0, {
 
 afterUpdate(() => {
     activePage = pageUrl.split("/");
-    if(pageUrl === "/"){
+    if(activePage === "/reservation"){
         activeItem = items[0].name;
     }
     else if(activePage[1] === "contact"){
-        activeItem = items[1].name;
-    }
-    else if(activePage[1] === "a-propos"){
         activeItem = items[2].name;
     }
+    else if(activePage[1] === "a-propos"){
+        activeItem = items[3].name;
+    }else{
+        activeItem = items[1].name;
+    }
+
 });
 
 let target = 0;
@@ -58,7 +61,7 @@ const handleBurger = () => {
     <div class="nav-right">
         {#each items as item}
         <div class="nav-item">
-            <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
+            <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Réservez"}>{item.name}</a>
         </div>
         {/each}
     </div>
@@ -70,7 +73,7 @@ const handleBurger = () => {
     <div class="burger-menu"  style={`height: ${$height}px; ${burgerOpen? "display:flex; flex-direction: column;": "display: none;"}`}>
         {#each items as item}
         <div class="nav-item">
-            <a href={`/${item.ref}`} on:click={handleBurger} class:active={item.name === activeItem} class:highlight={item.name == "Contactez-Moi"}>{item.name}</a>
+            <a href={`/${item.ref}`} on:click={handleBurger} class:active={item.name === activeItem} class:highlight={item.name == "Réservez"}>{item.name}</a>
         </div>
         {/each}
     </div>
