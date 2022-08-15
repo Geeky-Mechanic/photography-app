@@ -12,6 +12,9 @@
 <script>
     export let date;
 
+    let saved = false;
+    let bookError = false;
+
     let formData = {
         name: "",
         lastName: "",
@@ -80,8 +83,12 @@
                     "Content-Type": "application/json",
                 },
                 body:JSON.stringify({date, ...formData})
-            })
-            console.log(await res.json());
+            });
+            if(res.ok){
+                saved = true
+            }else{
+                bookError = true;
+            }
         }
     };
 </script>
@@ -117,6 +124,12 @@
         />
         <button on:click={handleClick}>CONFIRMER</button>
     </section>
+    {#if saved}
+        Votre rendez-vous est confirmé, nous entrerons en contact avec vous sous peu!
+    {/if}
+    {#if bookError}
+        La prise de votre rendez-vous à échoué, veuillez rafraichir et réassayer et si l'erreur persiste, entrez en contact avec nous.
+    {/if}
 </main>
 
 <style>

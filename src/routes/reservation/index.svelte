@@ -1,32 +1,40 @@
 <script context="module">
     export async function load({ fetch }) {
-        const res = await fetch(`/api/reservation`,{
+        const res = await fetch(`/api/reservation`, {
             headers: {
                 "Content-Type": "application/json",
             },
         });
 
+        const infoRes = await fetch(`/api/content/reservations`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const infoData = await infoRes.json();
+
         const data = await res.json();
 
-        if(res.ok){
+        if (res.ok) {
             return {
-                props:{
+                props: {
                     data,
-                }
-            }
-        };
-    };
+                    infoData,
+                },
+            };
+        }
+    }
 </script>
 
 <script>
-    import { goto } from "$app/navigation";
-    import { browser } from '$app/env';
+    import { browser } from "$app/env";
     import FullCalendar from "svelte-fullcalendar/src/FullCalendar.svelte";
     import daygridPlugin from "@fullcalendar/daygrid";
     import interactionPlugin from "@fullcalendar/interaction";
     import timegridPlugin from "@fullcalendar/timegrid";
 
     export let data;
+    export let infoData;
 
     const availableDates = [];
 
@@ -34,18 +42,22 @@
         const dayDate = new Date(item.day);
         item.hours.forEach((hour) => {
             availableDates.push({
-                title: "Disponible" ,
-                start : dayDate.setHours(parseInt(hour), 0,0,0), 
-                end: dayDate.setHours(parseInt(hour) + 3, 0,0,0),
-                url: `/reservation/${dayDate.setHours(parseInt(hour),0,0,0)}`,
-                backgroundColor:"#f0930b",
-                classNames:["event-url"],
+                title: "Disponible",
+                start: dayDate.setHours(parseInt(hour), 0, 0, 0),
+                end: dayDate.setHours(parseInt(hour) + 1, 0, 0, 0),
+                url: `/reservation/${dayDate.setHours(
+                    parseInt(hour),
+                    0,
+                    0,
+                    0
+                )}`,
+                backgroundColor: "#f0930b",
+                classNames: ["event-url"],
             });
         });
     });
 
     let options = {
-        //dateClick: (event) => /*console.log(event.date),*/goto(`/reservations/${event.dateStr}`),
         initialView: "dayGridMonth",
         plugins: [timegridPlugin, daygridPlugin, interactionPlugin],
         headerToolbar: {
@@ -55,40 +67,43 @@
             height: "70%",
         },
         buttonText: {
-            today:'Aujourd\'hui',
-            month:'Mois',
-            week:'Semaine',
-            day:'Jour',
-            list:'Liste'
+            today: "Aujourd'hui",
+            month: "Mois",
+            week: "Semaine",
+            day: "Jour",
+            list: "Liste",
         },
         locale: "fr",
         events: availableDates,
     };
 
-    if(browser){
+    if (browser) {
         const screenWidth = document.body.offsetWidth;
-        if(screenWidth <= 600){
+        if (screenWidth <= 600) {
             options = {
                 ...options,
-                initialView: "timeGridWeek" ,
-                headerToolbar:{
+                initialView: "timeGridWeek",
+                headerToolbar: {
                     left: "prev",
                     center: "title",
                     right: "next",
                     height: "70%",
-                }
-            }
+                },
+            };
         }
-    };
-
+    }
 </script>
 
 <main>
-<FullCalendar {options}/>
+    <h2 class="contact-title">{infoData[0].title}</h2>
+    <div class="contact-content">
+        <p>{infoData[0].content}</p>
+    </div>
+    <FullCalendar {options} />
 </main>
 
 <style>
-main{
-    padding: 0 2rem;
-}
+    main {
+        padding: 0 2rem;
+    }
 </style>

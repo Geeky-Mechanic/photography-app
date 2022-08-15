@@ -16,7 +16,7 @@ const height = tweened(0, {
 
 afterUpdate(() => {
     activePage = pageUrl.split("/");
-    if(activePage === "/reservation"){
+    if(activePage[1] === "reservation"){
         activeItem = items[0].name;
     }
     else if(activePage[1] === "contact"){
@@ -106,7 +106,9 @@ a {
 }
 
 .active {
-    border-bottom: 2px solid lightskyblue;
+    text-decoration: underline;
+    text-decoration-color: lightskyblue;
+    text-decoration-thickness: 2px;
 }
 
 .nav-right {

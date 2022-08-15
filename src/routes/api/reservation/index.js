@@ -46,26 +46,48 @@ export async function POST(event) {
             const hour = fullDate.getUTCHours() - 4;
             const day = fullDate.setUTCHours(4);
 
-            const newBooking = new Booking({
-                ...req,
-                answered: false
-            });
-            const savedBooking = await newBooking.save();
-
-            await Availability.findOneAndUpdate({
-                day
-            }, {
-                $pull: {
-                    hours: {$in:[hour.toString(), (hour + 1).toString(), (hour + 2).toString()]}
+            const isAvailable = await Availability.find({
+                day,
+                hours: {
+                    $elemMatch: {
+                        $eq: hour.toString()
+                    },
                 },
             });
 
-            return {
-                status: 200,
-                body: savedBooking,
-                headers: {
-                    "Content-Type": "application/json",
-                },
+            if (isAvailable && isAvailable.length === 1) {
+
+                const newBooking = new Booking({
+                    ...req,
+                    answered: false
+                });
+                const savedBooking = await newBooking.save();
+
+                await Availability.findOneAndUpdate({
+                    day
+                }, {
+                    $pull: {
+                        hours: {
+                            $in: [hour.toString(), (hour + 1).toString(), (hour + 2).toString()]
+                        }
+                    },
+                });
+
+                return {
+                    status: 200,
+                    body: savedBooking,
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            } else {
+                return {
+                    status: 400,
+                    body: "Not available",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
             }
         } else {
             return {
