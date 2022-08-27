@@ -34,6 +34,14 @@ const BookingSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        city:{
+            type: String,
+            required: true,
+        },
+        postalCode:{
+            type: String,
+            required: true,
+        },
         answered: {
             type: Boolean,
             required: true,

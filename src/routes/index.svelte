@@ -43,7 +43,6 @@
 import Carousel from "$lib/Carousel.svelte";
 import Button from "$lib/Button.svelte";
 import { goto } from '$app/navigation';
-import { contactStore } from "../stores/info.js";
 import { slide } from "svelte/transition";
 export let familyData;
 export let pregnancyData;
@@ -73,14 +72,10 @@ function getContentText(arr){
     return newArr[0].content;
 }
 
-const handleClick = (subj)=> {
-$contactStore.subj = subj;
-goto("/contact");
-};
 </script>
 
 <svelte:head>
-    <title>Optik Photographie : Service de photograpĥie de qualité en Abitibi</title>
+    <title>Optik Photographie : Service de photographie de qualité en Abitibi</title>
     <meta name="description" content="Je suis une Photographe de Val-d'Or très enthousisate et versatile dans mes types de photos qui offre ses services à plusieurs endroits en Abitibi">
     <meta name="google-site-verification" content="q315ivPfbLoPKqtbtDT4iYXoUEwTLOaSwifKGImlVds" />
 </svelte:head>
@@ -97,21 +92,21 @@ goto("/contact");
             <h2 class="carousel-title">Événements</h2>
             <p class="carousel-description">{eventText}</p>
             <Carousel autoChange items={newEventData} bgColor="#000" timer={5} />
-            <Button on:click={() => handleClick("Réservation pour Événements")} content="RÉSERVER" primary />
+            <Button on:click={() => goto("/reservation")} content="RÉSERVER" primary />
         </div>
         <hr />
         <div class="carousel-container">
             <h2 class="carousel-title">Famille</h2>
             <p class="carousel-description">{familyText}</p>
             <Carousel autoChange items={newFamilyData} bgColor="#000" timer={5} />
-            <Button on:click={() => handleClick("Réservation pour Famille")} content="RÉSERVER" primary />
+            <Button on:click={() => goto("/reservation")} content="RÉSERVER" primary />
         </div>
         <hr />
         <div class="carousel-container">
             <h2 class="carousel-title">Grossesses</h2>
             <p class="carousel-description">{pregnancyText}</p>
             <Carousel autoChange items={newPregnancyData} bgColor="#000" timer={5} /> 
-            <Button on:click={() => handleClick("Réservation pour Grossesses")} content="RÉSERVER" primary />
+            <Button on:click={() => goto("/reservation")} content="RÉSERVER" primary />
         </div>
     </section>
     

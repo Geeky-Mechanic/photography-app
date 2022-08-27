@@ -11,7 +11,13 @@
     import Navbar from "$lib/Navbar.svelte";
     import Footer from "$lib/Footer.svelte";
     export let pageUrl;
+    import { prefetchRoutes } from "$app/navigation";
+    import { browser } from '$app/env';
 
+    if(browser){
+        prefetchRoutes();
+    }
+    
     let items = [
         {name: "Réservez", ref:"reservation"},
         { name: "Acceuil", ref: "" },

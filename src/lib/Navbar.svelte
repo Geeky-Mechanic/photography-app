@@ -3,6 +3,7 @@ import { afterUpdate } from 'svelte';
 export let pageUrl;
 export let items;
 import { tweened } from 'svelte/motion';
+import { prefetch } from "$app/navigation";
 
 let activePage;
 
@@ -60,7 +61,7 @@ const handleBurger = () => {
 
     <div class="nav-right">
         {#each items as item}
-        <div class="nav-item">
+        <div class="nav-item" on:mouseenter={() => prefetch(`/${item.ref}`)}>
             <a href={`/${item.ref}`} class:active={item.name === activeItem} class:highlight={item.name == "Réservez"}>{item.name}</a>
         </div>
         {/each}

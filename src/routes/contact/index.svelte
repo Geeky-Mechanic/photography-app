@@ -17,7 +17,6 @@
 <script>
     import Card from "$lib/Card.svelte";
     import Button from "$lib/Button.svelte";
-    import { contactStore } from "../../stores/info.js";
     import { slide } from "svelte/transition";
     export let infoData;
 
@@ -27,7 +26,7 @@
         name: "",
         email: "",
         lname: "",
-        subj: $contactStore.subj,
+        subj: "",
         desc: "",
     };
 
@@ -242,6 +241,7 @@
     img {
         width: 30%;
         height: 30%;
+        fill: #fff;
     }
 
     label {

@@ -1,16 +1,27 @@
 <script context="module">
-    export async function load({ params }) {
+    export async function load({ params, fetch }) {
+        const res = await fetch(`/api/content/reservations`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await res.json();
+
         const date = parseInt(params.date);
         return {
             props: {
                 date,
+                data, 
             },
         };
     }
 </script>
 
 <script>
+    /* ---->  changer texte et ajouter ville  <---------------------------------- */
+    import Button from "$lib/Button.svelte";
     export let date;
+    export let data;
 
     let saved = false;
     let bookError = false;
@@ -21,6 +32,8 @@
         email: "",
         address: 0,
         streetName: "",
+        city: "",
+        postalCode: "",
         phoneNumber: "",
         description: "",
     };
@@ -95,8 +108,8 @@
 
 <main>
     <section class="top">
-        <h1>Veuillez remplir le formulaire de rendez-vous</h1>
-        <p>Ceci est un texte informatif</p>
+        <h1>{data[0].title}</h1>
+        <p>{data[0].content}</p>
     </section>
     <section class="form">
         <label for="name">Prénom</label>
@@ -109,6 +122,10 @@
         <input bind:value={formData.address} type="number" name="address" />
         <label for="streetName">Rue</label>
         <input bind:value={formData.streetName} type="text" name="streetName" />
+        <label for="city">Ville</label>
+        <input bind:value={formData.city} type="text" name="city" />
+        <label for="postalCode">Code Postal</label>
+        <input bind:value={formData.postalCode} type="text" name="postalCode" />
         <label for="phoneNumber">Numéro de téléphone</label>
         <input
             bind:value={formData.phoneNumber}
@@ -122,7 +139,7 @@
             cols="30"
             rows="10"
         />
-        <button on:click={handleClick}>CONFIRMER</button>
+        <Button primary on:click={handleClick} content="CONFIRMER" />
     </section>
     {#if saved}
         Votre rendez-vous est confirmé, nous entrerons en contact avec vous sous peu!

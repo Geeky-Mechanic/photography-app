@@ -1,8 +1,8 @@
 <script>
 export let content;
 export let primary;
-export let secondary;
-export let disabled;
+export let secondary = false ;
+export let disabled = false;
 </script>
 
 <button on:click class="{primary && 'primary'} {secondary && 'secondary'} {disabled && 'disabled'}" {disabled}>{content}</button>
